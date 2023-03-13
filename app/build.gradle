@@ -16,7 +16,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    buildFeatures{
+        viewBinding true
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -33,10 +35,17 @@ android {
 }
 
 dependencies {
-
+    constraints {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0") {
+            because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")
+        }
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0") {
+            because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
+        }
+    }
     implementation 'com.google.android.material:material:1.8.0'
-    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.6.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0'
